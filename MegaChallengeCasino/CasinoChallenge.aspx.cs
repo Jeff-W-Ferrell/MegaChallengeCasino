@@ -48,30 +48,10 @@ namespace MegaChallengeCasino
 
         private void randomThreeSymbols()
         {
-            randomFirst();
-            randomSecond();
-            randomThird();
-        }
-
-        private int randomFirst()
-        {
-            firstImage = r.Next(0, 11);
+            firstImage = r.Next(11); secondImage = r.Next(11); thirdImage = r.Next(11);
             firstSlotMachineImage.ImageUrl = images[firstImage];
-            return firstImage;
-        }
-
-        private int randomSecond()
-        {
-            secondImage = r.Next(0, 11);
             secondSlotMachineImage.ImageUrl = images[secondImage];
-            return secondImage;
-        }
-
-        private int randomThird()
-        {
-            thirdImage = r.Next(0, 11);
             thirdSlotMachineImage.ImageUrl = images[thirdImage];
-            return thirdImage;
         }
 
         private bool checkForBars()
@@ -92,8 +72,7 @@ namespace MegaChallengeCasino
         { 
             if (firstImage == 2 || secondImage == 2 || thirdImage == 2) winnings = bet * 2;
             if ((firstImage == 2 && secondImage == 2) || (firstImage == 2 && thirdImage == 2) 
-                || (secondImage == 2 && thirdImage == 2))
-                winnings = bet * 3;
+                || (secondImage == 2 && thirdImage == 2)) winnings = bet * 3;
             if (firstImage == 2 && secondImage == 2 && thirdImage == 2) winnings = bet * 4;
             return winnings;
         }
